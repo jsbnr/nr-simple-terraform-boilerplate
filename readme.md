@@ -16,7 +16,7 @@ First initialise terraform:
 ./runtf.sh init
 ```
 
-Now apply te changes:
+Now apply the changes:
 ```
 ./runtf.sh apply
 ```
