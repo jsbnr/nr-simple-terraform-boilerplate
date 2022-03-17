@@ -1,5 +1,5 @@
-# Very Simple Terraform Bioilerplate
-This boilerplate gets you up and runnign quickly. 
+# Very Simple Terraform Boilerplate
+This boilerplate gets you up and running quickly. 
 
 
 ## Installation
