@@ -1,4 +1,4 @@
-# Simple New Relic Terraform Local Develpoment Boilerplate
+# New Relic Terraform Local Development Boilerplate
 This boilerplate gets you up and running quickly with Terraform and New Relic. It includes a simple runner script that lets you easily provide credentials to Terraform without having to commit them to code.
 
 
