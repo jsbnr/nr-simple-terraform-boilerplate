@@ -1,19 +1,3 @@
-# terraform config 
-terraform {
-  required_version = "~> 1.1.3"
-  required_providers {
-    newrelic = {
-      source  = "newrelic/newrelic"
-      version = "~> 2.35.0"
-    }
-  }
-}
-
-provider "newrelic" {
-  region = "US" 
-}
-
-
 variable "accountId" { type = string }
 
 
@@ -31,7 +15,6 @@ resource "newrelic_nrql_alert_condition" "nrql_condition" {
   name                         = "Example NRQL Condition"
   enabled                      = true
   violation_time_limit_seconds = 3600
-  value_function               = "single_value"
 
   fill_option          = "static"
   fill_value           = 0
@@ -44,19 +27,19 @@ resource "newrelic_nrql_alert_condition" "nrql_condition" {
   close_violations_on_expiration = true
 
   nrql {
-    query             = "select count(*) from Transaction where error is true"
+    query             = "SELECT average(duration) from Transaction where api='amazonaws.com' "
   }
 
   critical {
     operator              = "above"
-    threshold             = 5
+    threshold             = 0.6
     threshold_duration    = 60
     threshold_occurrences = "at_least_once"
   }
 
   warning {
     operator              = "above"
-    threshold             = 2
+    threshold             = 0.45
     threshold_duration    = 60
     threshold_occurrences = "at_least_once"
   }
